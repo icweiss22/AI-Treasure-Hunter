@@ -2,6 +2,8 @@
   (function (e) {
     agentX = 0;
     agentY = 0;
+    goldPosX = 0;
+    goldPosY = 0;
     function t(e, t, r) {
       for (; t; ) {
         var l = (Math.random() * (j - 2) + 1) >> 0,
@@ -13,6 +15,10 @@
     function setAgentStarting(c, d) {
         agentX = c;
         agentY = d;
+    }
+    function setTreasureStarting(h, f) {
+        goldPosX = h;
+        goldPosY = f;
     }
     function n(e, t) {
       (this.type = e), (this.level = t);
@@ -88,7 +94,7 @@
           type: d[v.y][v.x].type,
           level: d[v.y][v.x].level,
         };
-        var e = O.turn(h);
+        var e = O.turn(h, d);
         return w[e](), s ? (i(), !0) : (g || (f = setTimeout(l, B)), !1);
       }
       function i() {
@@ -104,7 +110,7 @@
         clearTimeout(f),
           e.init(),
           (P = new Date().getTime()),
-          (O = new Stacker(agentX, agentY)),
+          (O = new Stacker(agentX, agentY, goldPosX, goldPosY)),
           (g = $("#ultrafast").prop("checked"));
         for (var t = l(); g && !t; ) t = l();
       }
@@ -184,6 +190,7 @@
         var f = (Math.random() * (j - 6) + 3) >> 0,
           h = (Math.random() * (z - 6) + 3) >> 0;
         d[h][f] = new n(S, q);
+        setTreasureStarting(h, f)
         for (var l = 0; 5 > l; l++)
           for (var i = 0; 5 > i; i++)
             d[h - 2 + i][f - 2 + l].type == T &&
