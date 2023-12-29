@@ -1,4 +1,5 @@
-Stacker AI for Ladder Game
+Stacker AI for Ladder Game 
+
 Overview
 The Stacker AI project is an advanced implementation of an intelligent agent designed for a grid-based ladder game. In this challenging environment, the AI navigates through a dynamic map to find and collect a treasure, represented as gold, while overcoming obstacles and utilizing blocks to reach elevated areas.
 
